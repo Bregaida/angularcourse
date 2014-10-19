@@ -10,6 +10,29 @@
 			<p>{{product.description | limitTo:3}}</p>
 			<p>{{product.createDate | date:'MM/dd/yyyy @ h:mma'}}</p>
 			<img ng-src="{{product.images[0].full}}">
+			<ul class="nav nav-tabs" role="tablist" ng-init="tab = 1">
+  				<li ng-class="{active : tab === 1}"><a ng-click="tab = 1">Name</a></li>
+				<li ng-class="{active : tab === 2}"><a ng-click="tab = 2">Description</a></li>
+  				<li ng-class="{active : tab === 3}"><a ng-click="tab = 3">Price</a></li>
+			</ul>
+			<div class="panel panel-default" ng-show="tab === 1">
+  				<div class="panel-heading">Panel Name</div>
+  				<div class="panel-body">
+				    Panel content Name
+  				</div>
+			</div>
+			<div class="panel panel-default" ng-show="tab === 2">
+  				<div class="panel-heading">Panel Description</div>
+  				<div class="panel-body">
+				    Panel content Description
+  				</div>
+			</div>
+			<div class="panel panel-default" ng-show="tab === 3">
+  				<div class="panel-heading">Panel Price</div>
+  				<div class="panel-body">
+				    Panel content Price
+  				</div>
+			</div>
 			<button ng-show="store.product.canPurchase">Add</button>
 		</div>
 		<script type="text/javascript" src="js/angular.min.js"></script>
